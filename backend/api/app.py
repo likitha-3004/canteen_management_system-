@@ -372,6 +372,14 @@ def update_order_status():
         cursor.close()
         conn.close()
 
+@app.route("/api/hello")
+def hello():
+    return jsonify({"message": "Hello from Flask on Vercel!"})
+
+# For Vercel deployment
+def handler(request, response):
+    return app(request, response)
+
 
 # --- Run the App ---
 if __name__ == '__main__':
